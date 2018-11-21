@@ -11,8 +11,9 @@ class Album extends Component {
 
         this.state = {
             album: album,
-            currentSong: album.songs[0],
-            isPlaying: false
+            isPlaying: false,
+            currentSong: null,
+            songHovered: null
         };
 
         this.audioElement = document.createElement('audio');
@@ -26,7 +27,10 @@ class Album extends Component {
 
     pause() {
         this.audioElement.pause();
-        this.setState({ isPlaying: false });
+        this.setState({
+            isPlaying: false,
+            currentSong: null
+        });
     }
 
     setSong(song) {
@@ -44,6 +48,19 @@ class Album extends Component {
         }
     }
 
+    handleMouseEnter(song) {
+        const index = this.state.album.songs.indexOf(song);
+        this.setState( {songHovered: index} );
+    }
+
+    handleMouseLeave(song) {
+        this.setState( {songHovered: null});
+    }
+
+    showIcon(song) {
+        return (song === this.state.currentSong) ? 'ion-md-pause' : 'ion-md-play-circle';
+    }
+    
     render() {
         return (
             <section className="album">
@@ -63,12 +80,20 @@ class Album extends Component {
                     </colgroup>
                     <tbody>
                         {this.state.album.songs.map( (song, index) =>
-                            <tr className="song" key={index} onClick={() => this.handleSongClick(song)}
-                                <td>{index+1}</td>
-                                <td>{song.title}</td>
-                                <td>{song.duration}</td>
-                            </tr>
-                        )}
+                                <tr className="song" key={index}
+                                    onClick={() => this.handleSongClick(song)}
+                                    onMouseEnter={() => this.handleMouseEnter(song)}
+                                    onMouseLeave={() => this.handleMouseLeave()}
+                                >
+                                    <td>
+                                        {index === this.state.songHovered ?
+                                        <span className={this.showIcon(song)}></span> :
+                                        <span>{index+1}</span>}
+                                    </td>
+                                    <td>{song.title}</td>
+                                    <td>{song.duration}</td>
+                                </tr>
+                            )}
                     </tbody>
                 </table>
             </section>
