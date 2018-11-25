@@ -1,0 +1,12 @@
+#time-control {
+  margin: 10px;
+}
+
+#volume-control {
+  margin: 0 10px 10px;
+}
+
+.player-bar {
+  background-color: #BC96E6;
+  padding: 10px;
+}

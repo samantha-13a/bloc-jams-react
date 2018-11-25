@@ -15,7 +15,6 @@ class Album extends Component {
             isPlaying: false,
             currentSong: null,
             currentTime: 0,
-            displayTime: '-:--',
             duration: album.songs[0].duration,
             currentVolume: 0,
             songHovered: null
@@ -29,10 +28,7 @@ class Album extends Component {
         this.eventListeners = {
             timeupdate: e => {
                 const display = this.formatTime(this.audioElement.currentTime);
-                this.setState({
-                    currentTime: this.audioElement.currentTime,
-                    displayTime: display
-                });
+                this.setState({ currentTime: this.audioElement.currentTime });
             },
             durationchange: e => {
                 this.setState({ duration: this.audioElement.duration });
@@ -167,7 +163,6 @@ class Album extends Component {
                     isPlaying={this.state.isPlaying} 
                     currentSong={this.state.currentSong}
                     currentTime={this.audioElement.currentTime}
-                    displayTime={this.state.displayTime}
                     duration={this.audioElement.duration}
                     currentVolume={this.audioElement.volume}
                     handleSongClick={() => this.handleSongClick(this.state.currentSong)}

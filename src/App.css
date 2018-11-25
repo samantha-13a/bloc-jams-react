@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -29,4 +25,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.landing-link, .library-link {
+  margin: 0 20px 20px;
+  font-size: 19px;
+  display: inline-block;
+}
+
+.app-name {
+  border: 10px dotted black;
+  font-size: 47px;
+  width: 300px;
+  margin: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+body {
+  background-color: #D8B4E2;
+  font-family: monospace;
+}
+
+nav {
+  background-color: #BC96E6;
 }

@@ -1,0 +1,23 @@
+#song-list {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.album {
+  text-align: center;
+  width: 100%;
+}
+
+#album-cover-art {
+  width: 350px;
+  margin-top: 20px;
+}
+
+.album-details {
+  background-color: #AE759F;
+  text-align: center;
+  width: 250px;
+  margin: 20px auto;
+  max-width: 100%;
+  border-radius: 5px;
+}

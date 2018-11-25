@@ -1,0 +1,22 @@
+.library {
+  text-align: center;
+}
+
+.album {
+  display: inline-block;
+}
+
+.album-title {
+  font-size: 50px;
+  text-shadow: 5px 5px 10px black;
+  margin: 0 20px;
+}
+
+.album-cover {
+  width: 350px;
+  margin: 20px;
+}
+
+.album-details {
+  margin: 20px;
+}
